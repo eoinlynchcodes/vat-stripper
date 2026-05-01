@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VAT Stripper — Ireland</title>
+    <meta name="description" content="Remove Irish VAT from any amount. Pick a rate and see the ex-VAT price instantly." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%82%AC</text></svg>" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <header>
+        <h1>VAT Stripper</h1>
+        <p class="subtitle">Strip Irish VAT from any amount.</p>
+      </header>
+
+      <form id="vat-form" autocomplete="off">
+        <label for="amount">Amount (incl. VAT)</label>
+        <div class="input-row">
+          <span class="prefix">€</span>
+          <input
+            id="amount"
+            name="amount"
+            type="number"
+            inputmode="decimal"
+            step="0.01"
+            min="0"
+            placeholder="0.00"
+            required
+          />
+        </div>
+
+        <label for="rate">VAT rate</label>
+        <select id="rate" name="rate">
+          <option value="23" selected>Standard — 23%</option>
+          <option value="13.5">Reduced — 13.5%</option>
+          <option value="9">Second reduced — 9%</option>
+          <option value="4.8">Livestock — 4.8%</option>
+          <option value="0">Zero — 0%</option>
+        </select>
+      </form>
+
+      <section class="result" aria-live="polite">
+        <div class="row">
+          <span class="label">Net (ex VAT)</span>
+          <span class="value" id="net">€0.00</span>
+        </div>
+        <div class="row muted">
+          <span class="label">VAT</span>
+          <span class="value" id="vat">€0.00</span>
+        </div>
+        <div class="row muted">
+          <span class="label">Gross (incl VAT)</span>
+          <span class="value" id="gross">€0.00</span>
+        </div>
+      </section>
+
+      <footer>
+        <small>Rates per Irish Revenue. Not tax advice.</small>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

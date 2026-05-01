@@ -1,0 +1,183 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --ink: #11151c;
+  --muted: #6b7380;
+  --border: #e6e8ec;
+  --accent: #0a7d4b;
+  --accent-soft: #e6f4ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+header h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 14px 0 6px;
+}
+
+.input-row {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input-row:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.prefix {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  background: #fafbfc;
+  color: var(--muted);
+  border-right: 1px solid var(--border);
+  font-weight: 600;
+}
+
+input[type="number"] {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  padding: 12px 14px;
+  font-size: 16px;
+  background: transparent;
+  color: var(--ink);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 40px 12px 14px;
+  font-size: 16px;
+  background: #fff
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='none' stroke='%236b7380' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M2.5 4.5 6 8l3.5-3.5'/></svg>")
+    no-repeat right 14px center;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+select:focus {
+  outline: 0;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.result {
+  margin-top: 24px;
+  padding: 16px;
+  background: var(--accent-soft);
+  border-radius: 12px;
+}
+
+.result .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+}
+
+.result .row.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.result .label {
+  font-weight: 500;
+}
+
+.result .value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.result .row:not(.muted) .value {
+  color: var(--accent);
+  font-size: 22px;
+}
+
+footer {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted);
+}
+
+footer small {
+  font-size: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --ink: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --accent: #3fb950;
+    --accent-soft: #0f2a1a;
+  }
+  .prefix {
+    background: #1c2128;
+  }
+  select {
+    background-color: var(--card);
+  }
+}
