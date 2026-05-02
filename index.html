@@ -16,7 +16,14 @@
       </header>
 
       <form id="vat-form" autocomplete="off">
-        <label for="amount">Amount (incl. VAT)</label>
+        <div class="mode" role="tablist" aria-label="Calculation mode">
+          <input type="radio" id="mode-remove" name="mode" value="remove" checked />
+          <label for="mode-remove" role="tab">Remove VAT</label>
+          <input type="radio" id="mode-add" name="mode" value="add" />
+          <label for="mode-add" role="tab">Add VAT</label>
+        </div>
+
+        <label for="amount" id="amount-label">Amount (incl. VAT)</label>
         <div class="input-row">
           <span class="prefix">€</span>
           <input
